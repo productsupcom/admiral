@@ -24,6 +24,7 @@ var (
 var (
 	rootCmd = &cobra.Command{
 		Use:        "admiral command",
+		Args: 	cobra.MinimumNArgs(1),
 		ValidArgs:  []string{"copy", "create", "edit", "delete", "view", "list", "inventory", "prometheus"},
 		ArgAliases: []string{"cp", "add", "remove", "rm", "del", "ls", "get", "inv", "prom"},
 		Short:      "Admiral is a lightweight Ansible inventory database management tool",
