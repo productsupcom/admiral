@@ -69,6 +69,8 @@ func NewConfig() *Config {
 	// Override all for tests
 	v.AddConfigPath("../fixtures")
 
+	v.SetDefault("mariadb.Port", 3306)
+
 	if err = v.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			// if couldn't find local config, search in user home folder
