@@ -130,7 +130,7 @@ func (db *Database) DeleteHost(host *datastructs.Host) (affected int64, err erro
 func (db *Database) ScanHosts(val string) (hosts []datastructs.Host, err error) {
 	rows, err := db.Conn.Query("Select host_id, host, hostname, domain, variables, enabled,"+
 		" monitored, direct_group, inherited_groups FROM host_view WHERE hostname"+
-		" LIKE ? OR host LIKE ?;", "%"+val+"%", "%"+val+"%")
+		" LIKE ? OR host LIKE ?", val, val)
 	if errors.Is(err, sql.ErrNoRows) {
 		return hosts, nil
 	} else if err != nil {
