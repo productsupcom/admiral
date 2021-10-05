@@ -1,4 +1,4 @@
-module github.com/via-justa/admiral
+module github.com/tanji/admiral
 
 go 1.14
 

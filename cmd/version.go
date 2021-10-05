@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/via-justa/admiral/release"
+	"github.com/tanji/admiral/release"
 )
 
 //nolint:errcheck

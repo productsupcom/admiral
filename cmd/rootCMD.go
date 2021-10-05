@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/via-justa/admiral/config"
-	"github.com/via-justa/admiral/database"
+	"github.com/tanji/admiral/config"
+	"github.com/tanji/admiral/database"
 
 	"github.com/spf13/cobra"
 )
@@ -24,7 +24,7 @@ var (
 var (
 	rootCmd = &cobra.Command{
 		Use:        "admiral command",
-		Args: 	cobra.MinimumNArgs(1),
+		Args:       cobra.MinimumNArgs(1),
 		ValidArgs:  []string{"copy", "create", "edit", "delete", "view", "list", "inventory", "prometheus"},
 		ArgAliases: []string{"cp", "add", "remove", "rm", "del", "ls", "get", "inv", "prom"},
 		Short:      "Admiral is a lightweight Ansible inventory database management tool",
@@ -40,7 +40,7 @@ in one of the following locations:
 - $HOME/.admiral.toml
 
 A template of the configuration file can be found at the repository
-https://github.com/via-justa/admiral`,
+https://github.com/tanji/admiral`,
 	}
 )
 

@@ -1,10 +1,10 @@
 package database
 
 import (
-	"github.com/via-justa/admiral/config"
-	"github.com/via-justa/admiral/database/internal/mariadb"
-	"github.com/via-justa/admiral/database/internal/sqlite"
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/config"
+	"github.com/tanji/admiral/database/internal/mariadb"
+	"github.com/tanji/admiral/database/internal/sqlite"
+	"github.com/tanji/admiral/datastructs"
 )
 
 // DBInterface expose backend database functions

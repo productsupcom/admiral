@@ -9,7 +9,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 )
 
 var testDB *Database

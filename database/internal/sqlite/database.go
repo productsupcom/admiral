@@ -9,10 +9,10 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/via-justa/admiral/config"
+	"github.com/tanji/admiral/config"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 
 	// sqlite driver
 	_ "github.com/mattn/go-sqlite3"

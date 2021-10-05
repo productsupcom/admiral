@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 )
 
 // admiral view host

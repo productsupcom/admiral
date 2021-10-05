@@ -16,7 +16,7 @@ in one of the following locations:
 - $HOME/.admiral.toml
 
 A template of the configuration file can be found at the repository
-https://github.com/via-justa/admiral
+https://github.com/tanji/admiral
 
 ### Options
 

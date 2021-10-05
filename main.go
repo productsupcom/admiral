@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/via-justa/admiral/cmd"
+	"github.com/tanji/admiral/cmd"
 )
 
 var appVersion = "undefined"

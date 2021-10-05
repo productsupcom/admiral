@@ -9,8 +9,8 @@ import (
 	"os/exec"
 	"strings"
 
+	"github.com/tanji/admiral/datastructs"
 	"github.com/tatsushid/go-prettytable"
-	"github.com/via-justa/admiral/datastructs"
 )
 
 const separator = " |"

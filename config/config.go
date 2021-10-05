@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/spf13/viper"
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 )
 
 // MariaDBConfig MariaDB specific configurations

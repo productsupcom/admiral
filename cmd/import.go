@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 
 	"github.com/spf13/cobra"
 )

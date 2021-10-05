@@ -1,9 +1,9 @@
-![Go Test](https://github.com/via-justa/admiral/workflows/Go/badge.svg)
+![Go Test](https://github.com/tanji/admiral/workflows/Go/badge.svg)
 ![Language](https://img.shields.io/badge/Language-go-green)
-[![Go Report Card](https://goreportcard.com/badge/github.com/via-justa/admiral)](https://goreportcard.com/report/github.com/via-justa/admiral)
-[![Coverage Status](https://coveralls.io/repos/github/via-justa/admiral/badge.svg)](https://coveralls.io/github/via-justa/admiral)
+[![Go Report Card](https://goreportcard.com/badge/github.com/tanji/admiral)](https://goreportcard.com/report/github.com/tanji/admiral)
+[![Coverage Status](https://coveralls.io/repos/github/tanji/admiral/badge.svg)](https://coveralls.io/github/tanji/admiral)
 [![license](https://img.shields.io/badge/license-CC-blue)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![latest release](https://img.shields.io/badge/-latest_release-blue)](https://github.com/via-justa/admiral/releases/latest)
+[![latest release](https://img.shields.io/badge/-latest_release-blue)](https://github.com/tanji/admiral/releases/latest)
 
 # Admiral
 
@@ -52,7 +52,7 @@ Database backend support
 Installation
 ------------
 
--   Download and extract the relevant version from the [release page](https://github.com/via-justa/admiral/releases) to a location in your `$PATH`
+-   Download and extract the relevant version from the [release page](https://github.com/tanji/admiral/releases) to a location in your `$PATH`
 -   Add configuration file is detailed in the `Configuration File` section
 -   Add bash-completion to your `.bashrc` or `.profile` (optional)
     ```shell
@@ -125,10 +125,10 @@ View all hosts
 ```
 $ admiral view host
 IP           |Hostname       |domain         |Enabled      |Monitored    |Direct Groups     |Inherited Groups
-1.2.3.4      |host-2         |via-justa.com  |true         |true         |web               |app
-1.2.3.5      |host-3         |via-justa.com  |true         |true         |web               |app
-1.2.3.6      |host-4         |via-justa.com  |true         |true         |web               |app
-1.2.3.7      |host-5         |via-justa.com  |true         |true         |web               |app
+1.2.3.4      |host-2         |tanji.com  |true         |true         |web               |app
+1.2.3.5      |host-3         |tanji.com  |true         |true         |web               |app
+1.2.3.6      |host-4         |tanji.com  |true         |true         |web               |app
+1.2.3.7      |host-5         |tanji.com  |true         |true         |web               |app
 ...
 ```
 
@@ -136,7 +136,7 @@ View specific host
 ```
 $ admiral view host host-2
 IP           |Hostname      |domain         |Enabled      |Monitored    |Direct Groups  |Inherited Groups
-1.2.3.4      |host-2        |via-justa.com  |true         |true         |web            |app
+1.2.3.4      |host-2        |tanji.com  |true         |true         |web            |app
 ```
 
 View host as JSON (with vars)
@@ -146,7 +146,7 @@ $ admiral view host host-2
     {
         "ip": "1.2.3.4",
         "hostname": "host-2",
-        "domain": "via-justa.com",
+        "domain": "tanji.com",
         "variables": {},
         "enable": true,
         "monitor": true,
@@ -160,7 +160,7 @@ Create New host
 $ admiral create host host-2
 <edit in editor>
 IP           |Hostname       |domain         |Enabled      |Monitored    |Direct Groups |Inherited Groups
-1.2.3.4      |host-2         |via-justa.com  |true         |true         |web           |app
+1.2.3.4      |host-2         |tanji.com  |true         |true         |web           |app
 Please confirm [y/n]: y
 ```
 
@@ -168,7 +168,7 @@ Create New host none-interactively (useful for CI/CD pipelines)
 ```
 admiral create host host-2 --monitor=false --enable --ip 1.2.3.4 --group=web
 IP           |Hostname       |domain         |Enabled      |Monitored    |Direct Groups |Inherited Groups
-1.2.3.4      |host-2         |via-justa.com  |true         |true         |web           |
+1.2.3.4      |host-2         |tanji.com  |true         |true         |web           |
 Please confirm [y/n]: y
 ```
 
@@ -177,7 +177,7 @@ Create a new host from an existing one
 $ admiral copy host host-1 host-2
 <edit in editor>
 IP           |Hostname       |domain         |Enabled      |Monitored    |Direct Groups     |Inherited Groups
-1.2.3.4      |host-2         |via-justa.com  |true         |true         |web               |
+1.2.3.4      |host-2         |tanji.com  |true         |true         |web               |
 Please confirm [y/n]: y
 ```
 
@@ -185,14 +185,14 @@ Delete host
 ```
 $ admiral delete host host-2
 IP           |Hostname     |domain         |Enabled      |Monitored    |Direct Groups     |Inherited Groups
-1.2.3.4      |host-2       |via-justa.com  |true         |true         |web               |
+1.2.3.4      |host-2       |tanji.com  |true         |true         |web               |
 Please confirm [y/n]: y
 ```
 
 Run Ansible ping to check Ansible connectivity
 ```
 $ admiral ping host-2
-host-2.via-justa.com | SUCCESS => {
+host-2.tanji.com | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
     },

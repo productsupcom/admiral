@@ -2,8 +2,8 @@
 package sqlite
 
 import (
-	"github.com/via-justa/admiral/config"
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/config"
+	"github.com/tanji/admiral/datastructs"
 )
 
 // Simulate the following DB records

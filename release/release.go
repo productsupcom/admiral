@@ -7,9 +7,9 @@ import (
 	"github.com/google/go-github/v32/github"
 )
 
-const user = "via-justa"
+const user = "tanji"
 const repo = "admiral"
-const releaseURL = "https://github.com/via-justa/admiral/releases/tag/"
+const releaseURL = "https://github.com/tanji/admiral/releases/tag/"
 
 // CheckForUpdates report if new release available to download
 func CheckForUpdates(currentVersion string) string {

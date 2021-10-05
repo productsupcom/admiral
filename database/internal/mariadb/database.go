@@ -7,12 +7,12 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/via-justa/admiral/config"
+	"github.com/tanji/admiral/config"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/via-justa/admiral/datastructs"
+	"github.com/tanji/admiral/datastructs"
 )
 
 // Database exposes a database connection
