@@ -1,0 +1,12 @@
+name: "admiral"
+arch: "amd64"
+platform: "linux"
+version: "${version}"
+section: "utils"
+priority: extra
+maintainer: "Productsup <ops@productsup.com>"
+description: "Admiral - a lightweight, opinionated, command-line tool to manage ansible database based inventory."
+vendor: "Productsup"
+homepage: "https://github.com/productsupcom/admiral"
+files:
+  ./build/admiral: "/usr/bin/admiral"
