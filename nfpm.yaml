@@ -9,4 +9,4 @@ description: "Admiral - a lightweight, opinionated, command-line tool to manage 
 vendor: "Productsup"
 homepage: "https://github.com/productsupcom/admiral"
 files:
-  ./build/admiral: "/usr/bin/admiral"
+  ./build/admiral: "/usr/local/bin/admiral"
