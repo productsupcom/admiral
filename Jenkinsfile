@@ -17,35 +17,21 @@ pipeline {
     }
 
     stages {
+        // Checkout code with tags. The regular scm call does a flat checkout
+        // and we need the tags to set the version
         stage("Checkout") {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: 'refs/heads/'+env.BRANCH_NAME]],
-                    extensions: [[$class: 'CloneOption', noTags: false, shallow: false, depth: 0, reference: '']],
-                    userRemoteConfigs: scm.userRemoteConfigs,
-                ])
-                sh "git checkout ${env.BRANCH_NAME}"
-                sh "git reset --hard origin/${env.BRANCH_NAME}" 
-                }
+                gitCheckout()
+            }
         }
 
+        // set version with the following scheme
+        //   tags:   version = <tag>
+        //   PR:     version = <latest tag>.<PR number>
+        //   branch: version = <latest tag>-<branch name>
         stage ('Getter information') {
             steps {
-                script {
-                    sh 'printenv | sort'
-                    NAME    = ("admiral").toLowerCase()
-                    TAG = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
-                    sh "echo 'tag: ${TAG}'"
-                    if ( env.TAG_NAME ) {
-                        version = env.TAG_NAME.toLowerCase()
-                    } else if ( env.BRANCH_NAME.startsWith('PR') ) {
-                        version = "${TAG}.${env.BRANCH_NAME.replace('PR-', '')}-${env.BUILD_ID}"
-                    } else {
-                        version = "${TAG}-${env.BRANCH_NAME}-${env.BUILD_ID}"
-                    }
-                    sh "echo ${version}"
-                }
+                prepareInfo()
             }
         }
 
