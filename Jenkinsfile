@@ -1,5 +1,15 @@
-def NAME
-def version
+env.name                       = "admiral"
+env.description                = "admiral"
+env.maintainer                 = "Operations Team <ops@productsup.com>"
+env.homepage                   = "https://github.com/productsupcom/admiral"
+
+env.version
+env.branch
+env.gitCommitHash
+env.gitCommitAuthor
+env.gitCommitMessage
+env.package_file_name
+env.branch_location
 
 pipeline {
     agent { label 'jenkins-4'}
@@ -55,32 +65,38 @@ pipeline {
                 }
             }
             steps {
-                sh "go build -o ./build/${NAME} -ldflags \"-s -X cmd.AppVersion=${version}\""
+                sh "go build -o ./build/${env.name} -ldflags \"-s -X cmd.AppVersion=${env.version}\""
             }
         }
 
         stage ('Build deb package') {
+            when { 
+                buildingTag()
+            }
             steps {
                 script {
-                    sh "version=${version} nfpm pkg --target ${NAME}_${version}-amd64.deb"
-                    sh "dpkg-deb -I ${NAME}_${version}-amd64.deb"
-                    sh "dpkg -c ${NAME}_${version}-amd64.deb"
+                    def package_internal_name = "${env.name}"
+
+                    setPackageName(customName: "${env.name}-${env.version}")
+                    // build
+                    buildDebPackageBin(
+                        package_internal_name: "${package_internal_name}",
+                        package_file_name: "${env.package_file_name}",
+                        version: "${env.version}",
+                        description: "${env.description}",
+                        homepage: "${env.homepage}",
+                        maintainer: "${env.maintainer}",
+                    )
                 }
             }
         }
 
         stage ('Publish deb package') {
-            when { 
+            when {
                 buildingTag()
-             }
+            }
             steps {
-                sshagent (credentials: ['jenkins-ssh']) {
-                    script {
-                        sh "scp -o StrictHostKeyChecking=no ${NAME}_${version}-amd64.deb root@aptly.productsup.com:/tmp/"
-                        sh "ssh -o StrictHostKeyChecking=no root@aptly.productsup.com \"aptly repo add stable /tmp/${NAME}_${version}-amd64.deb && \
-                           aptly publish update -passphrase-file='/root/.aptly/passphrase' -batch stable s3:aptly-productsup:debian && rm /tmp/${NAME}_${version}-amd64.deb\""
-                    }
-                }
+                publishDebPackage(package_name: "${env.package_file_name}_all.deb")
             }
         }
     }
